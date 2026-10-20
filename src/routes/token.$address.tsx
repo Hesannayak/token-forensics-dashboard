@@ -62,6 +62,22 @@ function Report() {
               </div>
             ))}
           </dl>
+          <div className="mt-6">
+            <span className="text-[11px] uppercase tracking-wider text-faint">Key findings</span>
+            <ul className="mt-3 space-y-2 text-[13px]">
+              {[
+                ["warn", "2 wallets bought inside the creation slot"],
+                ["warn", "1 of 2 block-0 wallets active across multiple launches"],
+                ["ok", "No shared CEX funding source detected"],
+                ["ok", "No coordinated sell activity since launch"],
+              ].map(([t, f]) => (
+                <li key={f} className="flex items-center gap-3 text-muted-foreground">
+                  <span className={cn("size-1.5 rounded-full", t === "ok" ? "bg-ok" : "bg-warn")} />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <ScoreGauge score={score} />
