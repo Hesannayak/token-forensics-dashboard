@@ -23,7 +23,7 @@ const toneBg = { unlikely: "bg-ok", possible: "bg-warn", likely: "bg-high", dump
 
 function Report() {
   const { address } = Route.useParams();
-  const scan = recentScans.find((s) => s.address === address) ?? recentScans[0];
+  const scan = recentScans.find((s) => s.address === address) ?? recentScans[0]!;
   const score = scan.score;
   const v = verdictFor(score);
 
